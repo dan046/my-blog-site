@@ -14,11 +14,11 @@ const BlogPost = ({ post, handleDelete }: Props) => {
   return (
     <main>
       {post.length ? (
-        <div>
+        <div className="grid grid-cols-2 gap-1">
           {post.map((data) => (
             <div
               key={data.id}
-              className="flex flex-col items-center border-solid border-2 border-black rounded-xl px-8 py-7 my-4 mx-4 md:w-1/2"
+              className="flex flex-col border-solid border-2 border-black rounded-xl px-8 py-7 my-4 mx-4"
             >
               <h1 className="text-xl font-semibold">{data.title}</h1>
               <p>Author: {data.author}</p>
@@ -43,7 +43,7 @@ const BlogPost = ({ post, handleDelete }: Props) => {
           ))}
         </div>
       ) : (
-        <NoContent warning="No blog posts to display"/>
+        <NoContent warning="No blog posts to display" />
       )}
     </main>
   )

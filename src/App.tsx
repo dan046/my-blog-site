@@ -12,7 +12,7 @@ const App = () => {
       author: "Lee",
       date: "2023-05-15",
       content:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil non vitae illum nemo, delectus similique amet repellat, reiciendis quos consequatur maxime inventore deserunt, obcaecati accusamus modi necessitatibus odio? Maiores, blanditiis nam. Incidunt harum perferendis similique voluptate quod, ab dolorem vero cumque quos ducimus a qui ipsam laudantium itaque facilis. Itaque?",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil non vitae illum nemo, delectus similique amet repellat, reiciendis quos consequatur maxime inventore deserunt, obcaecati accusamus modi necessitatibus odio?",
     },
     {
       id: 2,
@@ -31,6 +31,7 @@ const App = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, atque.",
     },
   ])
+  const [formData, setFormData] = useState({})
 
   const handleSubmit = (e: { target: any; preventDefault: () => void }) => {
     e.preventDefault()
@@ -43,6 +44,7 @@ const App = () => {
       content: e.target.content.value,
     }
     setPosts([...posts, newPost])
+    setFormData({})
   }
 
   const handleDelete = (id: number) => {
@@ -58,7 +60,11 @@ const App = () => {
         blog="Blog"
         contact="Contact Me"
       />
-      <AddPost handleSubmit={handleSubmit} />
+      <AddPost
+        handleSubmit={handleSubmit}
+        formData={formData}
+        setFormData={setFormData}
+      />
       <BlogPost post={posts} handleDelete={handleDelete} />
       <Footer
         email="example@example.com"
