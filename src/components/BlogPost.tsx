@@ -23,7 +23,12 @@ const BlogPost = ({ post, handleDelete }: Props) => {
               <h1 className="text-xl font-semibold">{data.title}</h1>
               <p>Author: {data.author}</p>
               <p>Posted: {data.date}</p>
-              <p className="text-justify">{data.content}</p>
+              <details className="border border-gray-300 rounded p-4">
+                <summary className="font-bold">Click to expand</summary>
+                <div className="mt-4">
+                  <p className="text-justify">{data.content}</p>
+                </div>
+              </details>
               <div className="flex flex-row gap-3 pt-4">
                 <button>
                   <FaEdit
