@@ -5,10 +5,10 @@ interface Props {
   contact?: string
 }
 const Header = ({
-  title = "My Blog",
-  home = "Home",
-  blog = "Blog",
-  contact = "Contact",
+  title = "Your Logo",
+  home = "Menu 1",
+  blog = "Menu 2",
+  contact = "Menu 3",
 }: Props) => {
   return (
     <nav className="bg-slate-900 pt-6 md:py-6 text-white md:flex md:items-center md:justify-between px-4">
