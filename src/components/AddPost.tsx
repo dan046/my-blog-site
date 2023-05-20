@@ -26,9 +26,9 @@ const AddPost = ({ input, handleInputChange, handleSubmit }: Props) => {
       <label htmlFor="title">Title:</label>
       <input
         type="text"
-        name="title"
+        name="title" p-1
         id="title"
-        className="border w-full"
+        className="border w-full p-1"
         // value={formData.title || ""}
         // onChange={(e) => setFormData({ ...formData, title: e.target.value })}
         value={input.title}
@@ -40,7 +40,7 @@ const AddPost = ({ input, handleInputChange, handleSubmit }: Props) => {
         type="text"
         name="author"
         id="author"
-        className="border w-full"
+        className="border w-full p-1"
         // value={formData.author || ""}
         // onChange={(e) => setFormData({ ...formData, author: e.target.value })}
         value={input.author}
@@ -51,7 +51,7 @@ const AddPost = ({ input, handleInputChange, handleSubmit }: Props) => {
         type="date"
         name="date"
         id="date"
-        className="border w-full"
+        className="border w-full p-1"
         // value={formData.date || ""}
         // onChange={(e) => setFormData({ ...formData, date: e.target.value })}
         value={input.date}
@@ -62,7 +62,7 @@ const AddPost = ({ input, handleInputChange, handleSubmit }: Props) => {
       <textarea
         name="content"
         id="content"
-        className="border w-full w-full p-2"
+        className="border w-full p-1"
         style={{ resize: "none" }}
         // value={formData.content || ""}
         // onChange={(e) => setFormData({ ...formData, content: e.target.value })}
