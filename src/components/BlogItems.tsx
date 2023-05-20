@@ -1,4 +1,6 @@
-
+interface Props {
+  
+}
 const BlogItems = () => {
   return (
     <div className="container">

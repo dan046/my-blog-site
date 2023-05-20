@@ -20,7 +20,7 @@ const AddPost = ({ input, handleInputChange, handleSubmit }: Props) => {
       className="block bg-white rounded-xl w-5/6 md:w-2/5 p-8 m-5 mx-auto shadow"
     >
       <div className="flex items-center gap-2 mb-5">
-        <h3 className="font-semibold">Add New Blog Post</h3>
+        <h3 className="font-semibold">New Blog Post</h3>
         <FaBlogger />
       </div>
       <label htmlFor="title">Title:</label>

@@ -10,8 +10,9 @@ interface Props {
     content: string
   }[]
   handleDelete: (id: number) => void
+  handleEdit: (id: number) => void
 }
-const BlogPost = ({ post, handleDelete }: Props) => {
+const BlogPost = ({ post, handleDelete, handleEdit }: Props) => {
 
   return (
     <main className="bg-slate-100">
@@ -39,6 +40,7 @@ const BlogPost = ({ post, handleDelete }: Props) => {
                   <FaEdit
                     className="text-green-500 hover:text-green-700 cursor-pointer text-2xl"
                     title="Edit Post"
+                    onClick={()=>handleEdit(data.id)}
                   />
                 </button>
                 <button>

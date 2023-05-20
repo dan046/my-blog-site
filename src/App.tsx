@@ -65,7 +65,9 @@ const App = () => {
   //   setPosts([...posts, newPost])
   //   setFormData({})
   // }
-  const [formData, setFormData] = useState<FormDataType[]>(getDataFromLocalStorage())
+  const [formData, setFormData] = useState<FormDataType[]>(
+    getDataFromLocalStorage()
+  )
   const [input, setInput] = useState({
     title: "",
     author: "",
@@ -95,10 +97,7 @@ const App = () => {
     const id = formData.length ? formData[formData.length - 1].id + 1 : 1
     const newData = {
       id,
-      title: input.title,
-      author: input.author,
-      date: input.date,
-      content: input.content,
+      ...input,
     }
     setFormData((prevData) => [...prevData, newData])
     setInput({
@@ -110,30 +109,41 @@ const App = () => {
   }
 
   useEffect(() => {
-    saveDataToLocalStorage(formData);
-  }, [formData]);
+    saveDataToLocalStorage(formData)
+  }, [formData])
 
   const handleDelete = (id: number) => {
     const postId = formData.filter((post: { id: number }) => post.id !== id)
     setFormData(postId)
   }
-  
+
+  const handleEdit = (id: number) => {
+    const tempPosts = [...formData]
+    const indexOfBlog = formData.findIndex((blog) => blog.id === id)
+    setFormData(tempPosts)
+    tempPosts[indexOfBlog].title = input.title || tempPosts[indexOfBlog].title
+    tempPosts[indexOfBlog].author =
+      input.author || tempPosts[indexOfBlog].author
+    tempPosts[indexOfBlog].date = input.date || tempPosts[indexOfBlog].date
+    tempPosts[indexOfBlog].content =
+      input.content || tempPosts[indexOfBlog].content
+  }
+
   return (
     <div className="flex flex-col h-screen justify-between bg-slate-100 justify-center">
-      <Header
-        title="Dan's Site"
-        home="Home"
-        blog="Blog"
-        contact="Contact Me"
-      />
-      <AddPost
+      <Header title="Dan's Site" home="Home" blog="Blog" contact="Contact Me" />
+      {/* <AddPost
         handleInputChange={handleInputChange}
         handleSubmit={handleAddData}
         input={input}
         // formData={formData}
         // setFormData={setFormData}
+      /> */}
+      <BlogPost
+        post={formData}
+        handleDelete={handleDelete}
+        handleEdit={handleEdit}
       />
-      <BlogPost post={formData} handleDelete={handleDelete} />
       <Footer
         email="example@example.com"
         address="123 Main St. City, State 12345"
