@@ -1,5 +1,6 @@
 import { FaTrashAlt, FaEdit } from "react-icons/fa"
 import NoContent from "./NoContent"
+import { useState } from "react"
 interface Props {
   post: {
     id: number
@@ -11,22 +12,30 @@ interface Props {
   handleDelete: (id: number) => void
 }
 const BlogPost = ({ post, handleDelete }: Props) => {
+  const [isOpen, setIsOpen] = useState(false)
+  const toggle = () => {
+    setIsOpen(!isOpen)
+  }
   return (
-    <main>
+    <main className="bg-slate-100">
       {post.length ? (
-        <div className="grid grid-cols-2 gap-1">
+        <div className="grid grid-cols-2 gap-1 bg-slate-100">
           {post.map((data) => (
             <div
               key={data.id}
-              className="flex flex-col border-solid border-2 border-black rounded-xl px-8 py-7 my-4 mx-4"
+              className="flex flex-col border shadow rounded-xl px-8 py-7 m-4 bg-white"
             >
               <h1 className="text-xl font-semibold">{data.title}</h1>
               <p>Author: {data.author}</p>
               <p>Posted: {data.date}</p>
-              <details className="border border-gray-300 rounded p-4">
-                <summary className="font-bold">Click to expand</summary>
+              <details className="border border-gray-300 rounded p-4 cursor-pointer">
+                <summary className="font-bold" onClick={toggle}>
+                  {isOpen ? "Click to close" : "Click to expand"}
+                </summary>
                 <div className="mt-4">
-                  <p className="text-left space-y-2 md:text-justify">{data.content}</p>
+                  <p className="text-left space-y-2 md:text-justify">
+                    {data.content}
+                  </p>
                 </div>
               </details>
               <div className="flex flex-row gap-3 pt-4">

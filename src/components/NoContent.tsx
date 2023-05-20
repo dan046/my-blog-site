@@ -4,8 +4,8 @@ interface Props {
 
 const NoContent = ({ warning = "No content" }: Props) => {
   return (
-    <main className="flex justify-center border-none border-2 rounded ">
-      <h1 className="text-2xl font-semibold bg-slate-200 py-4 px-4 rounded-xl drop-shadow-md hover:drop-shadow-xl cursor-pointer">
+    <main className="flex justify-center border-none rounded bg-slate-100 p-10">
+      <h1 className="text-2xl font-semibold bg-white py-4 px-4 rounded-xl shadow hover:drop-shadow-xl cursor-pointer">
         {warning}
       </h1>
     </main>

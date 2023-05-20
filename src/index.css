@@ -9,6 +9,11 @@
 }
 
 button svg,
-li a {
+li a,
+button:hover {
   transition: 0.2s ease-in-out;
+}
+
+div svg {
+  color: rgb(22 163 74);
 }
