@@ -26,7 +26,7 @@ const BlogPost = ({ post, handleDelete }: Props) => {
               <details className="border border-gray-300 rounded p-4">
                 <summary className="font-bold">Click to expand</summary>
                 <div className="mt-4">
-                  <p className="text-justify">{data.content}</p>
+                  <p className="text-left space-y-2 md:text-justify">{data.content}</p>
                 </div>
               </details>
               <div className="flex flex-row gap-3 pt-4">
