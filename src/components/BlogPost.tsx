@@ -1,6 +1,6 @@
 import { FaTrashAlt, FaEdit } from "react-icons/fa"
 import NoContent from "./NoContent"
-import { useState } from "react"
+
 interface Props {
   post: {
     id: number
