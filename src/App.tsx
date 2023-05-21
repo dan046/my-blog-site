@@ -95,8 +95,6 @@ const App = () => {
         handleInputChange={handleInputChange}
         handleSubmit={handleAddData}
         input={input}
-        // formData={formData}
-        // setFormData={setFormData}
       />
       <BlogPost
         post={formData}
