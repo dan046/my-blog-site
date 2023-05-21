@@ -88,6 +88,14 @@ const App = () => {
       input.content || tempPosts[indexOfBlog].content
   }
 
+  const [selectedDate, setSelectedDate] = useState("")
+  const handleFilter = (e: any) => {
+    setSelectedDate(e.target.value)
+  }
+  const filteredDates = selectedDate
+    ? formData.filter((post) => post.date === selectedDate)
+    : formData
+
   return (
     <div className="flex flex-col h-screen justify-between bg-slate-100 justify-center">
       <Header title="Dan's Site" home="Home" blog="Blog" contact="Contact Me" />
@@ -96,8 +104,22 @@ const App = () => {
         handleSubmit={handleAddData}
         input={input}
       />
+      <div>
+        <label htmlFor="dateFilter">Filter by Date:</label>
+        <select id="dateFilter" value={selectedDate} onChange={handleFilter}>
+          <option value="">All Dates</option>
+          {/* Grabbed the code from JavaScript News Website. Applied sort method */}
+          {formData
+            .sort((a, b) => a.date.localeCompare(b.date))
+            .map((post) => (
+              <option key={post.date} value={post.date}>
+                {post.date}
+              </option>
+            ))}
+        </select>
+      </div>
       <BlogPost
-        post={formData}
+        post={filteredDates}
         handleDelete={handleDelete}
         handleEdit={handleEdit}
       />
