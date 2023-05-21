@@ -104,16 +104,29 @@ const App = () => {
         handleSubmit={handleAddData}
         input={input}
       />
-      <div>
-        <label htmlFor="dateFilter">Filter by Date:</label>
-        <select id="dateFilter" value={selectedDate} onChange={handleFilter}>
+      <div className="flex gap-2 mx-5 bg-slate-100">
+        <label htmlFor="dateFilter" className="font-semibold">
+          Filter by Date:
+        </label>
+        <select
+          className="border border-none shadow rounded"
+          id="dateFilter"
+          value={selectedDate}
+          onChange={handleFilter}
+        >
           <option value="">All Dates</option>
-          {/* Grabbed the code from JavaScript News Website. Applied sort method */}
+          {/* Grabbed the code from JavaScript News Website. Applied reduce to remove the duplicates, sort method to sort the dates and mapping out the output with TS features. */}
           {formData
-            .sort((a, b) => a.date.localeCompare(b.date))
-            .map((post) => (
-              <option key={post.date} value={post.date}>
-                {post.date}
+            .reduce((duplicateDates: string[], post: FormDataType) => {
+              if (!duplicateDates.includes(post.date)) {
+                duplicateDates.push(post.date)
+              }
+              return duplicateDates
+            }, [])
+            .sort()
+            .map((date: string) => (
+              <option key={date} value={date}>
+                {date}
               </option>
             ))}
         </select>
