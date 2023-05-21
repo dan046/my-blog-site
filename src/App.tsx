@@ -3,6 +3,7 @@ import BlogPost from "./components/BlogPost"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import AddPost from "./components/AddPost"
+import { getDataFromLocalStorage, saveDataToLocalStorage } from "./utils/localStorage"
 
 interface FormDataType {
   id: number
@@ -11,18 +12,7 @@ interface FormDataType {
   date: string
   content: string
 }
-// Implementing Local Storage
-const saveDataToLocalStorage = (data: FormDataType[]) => {
-  localStorage.setItem("formData", JSON.stringify(data))
-}
-// Get Data from Local Storage
-const getDataFromLocalStorage = () => {
-  const storedData = localStorage.getItem("formData")
-  if (storedData) {
-    return JSON.parse(storedData)
-  }
-  return []
-}
+
 const App = () => {
   const [formData, setFormData] = useState<FormDataType[]>(
     getDataFromLocalStorage()
@@ -97,15 +87,15 @@ const App = () => {
     : formData
 
   return (
-    <div className="flex flex-col h-screen justify-between bg-slate-100 justify-center">
+    <div className="flex flex-col justify-between justify-center">
       <Header title="Dan's Site" home="Home" blog="Blog" contact="Contact Me" />
       <AddPost
         handleInputChange={handleInputChange}
         handleSubmit={handleAddData}
         input={input}
       />
-      <div className="flex gap-2 mx-5 bg-slate-100">
-        <label htmlFor="dateFilter" className="font-semibold">
+      <div className="flex gap-2 mx-5">
+        <label htmlFor="dateFilter" className="font-semibold dark:text-white">
           Filter by Date:
         </label>
         <select

@@ -11,7 +11,7 @@ const Header = ({
   contact = "Menu 3",
 }: Props) => {
   return (
-    <nav className="bg-slate-900 pt-6 md:py-6 text-white md:flex md:items-center md:justify-between px-4">
+    <nav className="bg-zinc-950 pt-6 md:py-6 text-white md:flex md:items-center md:justify-between px-4">
       <header>
         <h1 className="mb-4 md:mb-0 text-2xl">{title}</h1>
       </header>

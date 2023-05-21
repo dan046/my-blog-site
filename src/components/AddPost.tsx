@@ -8,12 +8,15 @@ interface Props {
     content: string
   }
   handleSubmit: (e: any) => void
-  // setFormData: (data: any) => void
-  // formData: any
   handleInputChange: (e: any) => void
 }
 
 const AddPost = ({ input, handleInputChange, handleSubmit }: Props) => {
+  // const calcTextAreaHeight = () => {
+  //   const lineHeight = 80
+  //   const lines = input.content.split("\n").length
+  //   return `${lines * lineHeight}px`
+  // }
   return (
     <form
       onSubmit={handleSubmit}
@@ -26,11 +29,10 @@ const AddPost = ({ input, handleInputChange, handleSubmit }: Props) => {
       <label htmlFor="title">Title:</label>
       <input
         type="text"
-        name="title" p-1
+        name="title"
+        p-1
         id="title"
         className="border w-full p-1"
-        // value={formData.title || ""}
-        // onChange={(e) => setFormData({ ...formData, title: e.target.value })}
         value={input.title}
         onChange={handleInputChange}
       />
@@ -41,8 +43,6 @@ const AddPost = ({ input, handleInputChange, handleSubmit }: Props) => {
         name="author"
         id="author"
         className="border w-full p-1"
-        // value={formData.author || ""}
-        // onChange={(e) => setFormData({ ...formData, author: e.target.value })}
         value={input.author}
         onChange={handleInputChange}
       />
@@ -52,8 +52,6 @@ const AddPost = ({ input, handleInputChange, handleSubmit }: Props) => {
         name="date"
         id="date"
         className="border w-full p-1"
-        // value={formData.date || ""}
-        // onChange={(e) => setFormData({ ...formData, date: e.target.value })}
         value={input.date}
         onChange={handleInputChange}
       />
@@ -62,10 +60,8 @@ const AddPost = ({ input, handleInputChange, handleSubmit }: Props) => {
       <textarea
         name="content"
         id="content"
-        className="border w-full p-1"
-        style={{ resize: "none" }}
-        // value={formData.content || ""}
-        // onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+        className="border w-full h-auto p-1"
+        // style={{ height: calcTextAreaHeight(), resize: 'none' }}
         value={input.content}
         onChange={handleInputChange}
       ></textarea>

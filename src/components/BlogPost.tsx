@@ -14,7 +14,7 @@ interface Props {
 }
 const BlogPost = ({ post, handleDelete, handleEdit }: Props) => {
   return (
-    <main className="bg-slate-100">
+    <main>
       {post.length ? (
         <BlogItems
           post={post}
