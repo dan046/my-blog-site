@@ -29,7 +29,7 @@ const BlogItems = ({ post, handleDelete, handleEdit }: Props) => {
                 className="text-left indent-0 md:indent-7 space-y-2 md:text-justify cursor-auto w-full"
                 style={{ resize: "none" }}
               >
-                {data.content.split('\n').map((p, index)=>(
+                {data.content.split("\n").map((p, index) => (
                   <p key={index}>{p}</p>
                 ))}
               </p>

@@ -20,9 +20,9 @@ const AddPost = ({ input, handleInputChange, handleSubmit }: Props) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="block bg-white rounded-xl w-5/6 md:w-2/5 p-8 m-5 mx-auto shadow"
+      className="m-5 mx-auto block w-5/6 rounded-xl bg-white p-8 shadow md:w-2/5"
     >
-      <div className="flex items-center gap-2 mb-5">
+      <div className="mb-5 flex items-center gap-2">
         <h3 className="font-semibold">New Blog Post</h3>
         <FaBlogger />
       </div>
@@ -32,7 +32,7 @@ const AddPost = ({ input, handleInputChange, handleSubmit }: Props) => {
         name="title"
         p-1
         id="title"
-        className="border w-full p-1"
+        className="w-full border p-1"
         value={input.title}
         onChange={handleInputChange}
       />
@@ -42,7 +42,7 @@ const AddPost = ({ input, handleInputChange, handleSubmit }: Props) => {
         type="text"
         name="author"
         id="author"
-        className="border w-full p-1"
+        className="w-full border p-1"
         value={input.author}
         onChange={handleInputChange}
       />
@@ -51,7 +51,7 @@ const AddPost = ({ input, handleInputChange, handleSubmit }: Props) => {
         type="date"
         name="date"
         id="date"
-        className="border w-full p-1"
+        className="w-full border p-1"
         value={input.date}
         onChange={handleInputChange}
       />
@@ -60,14 +60,14 @@ const AddPost = ({ input, handleInputChange, handleSubmit }: Props) => {
       <textarea
         name="content"
         id="content"
-        className="border w-full h-auto p-1"
+        className="h-auto w-full border p-1"
         // style={{ height: calcTextAreaHeight(), resize: 'none' }}
         value={input.content}
         onChange={handleInputChange}
       ></textarea>
       <div className="flex justify-end">
         <button
-          className="border px-5 py-2 rounded-lg bg-green-800 hover:bg-green-500 text-white font-semibold"
+          className="rounded-lg border bg-green-800 px-5 py-2 font-semibold text-white hover:bg-green-500"
           type="submit"
         >
           Post

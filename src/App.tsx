@@ -3,7 +3,10 @@ import BlogPost from "./components/BlogPost"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import AddPost from "./components/AddPost"
-import { getDataFromLocalStorage, saveDataToLocalStorage } from "./utils/localStorage"
+import {
+  getDataFromLocalStorage,
+  saveDataToLocalStorage,
+} from "./utils/localStorage"
 
 interface FormDataType {
   id: number
@@ -87,19 +90,19 @@ const App = () => {
     : formData
 
   return (
-    <div className="flex flex-col justify-between justify-center">
+    <div className="flex flex-col justify-center justify-between">
       <Header title="Dan's Site" home="Home" blog="Blog" contact="Contact Me" />
       <AddPost
         handleInputChange={handleInputChange}
         handleSubmit={handleAddData}
         input={input}
       />
-      <div className="flex gap-2 mx-5">
+      <div className="mx-5 flex gap-2">
         <label htmlFor="dateFilter" className="font-semibold dark:text-white">
           Filter by Date:
         </label>
         <select
-          className="border border-none shadow rounded"
+          className="rounded border border-none shadow"
           id="dateFilter"
           value={selectedDate}
           onChange={handleFilter}

@@ -13,8 +13,12 @@ const Footer = ({
       <p className="text-sm hover:underline cursor-pointer">
         Contact me at <span className="font-medium">{email}</span>
       </p>
-      <p className="text-sm hover:underline cursor-pointer">Address: {address}</p>
-      <p className="text-sm hover:underline cursor-pointer">Contact no.: {contact}</p>
+      <p className="text-sm hover:underline cursor-pointer">
+        Address: {address}
+      </p>
+      <p className="text-sm hover:underline cursor-pointer">
+        Contact no.: {contact}
+      </p>
     </footer>
   )
 }
