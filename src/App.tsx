@@ -21,6 +21,10 @@ const App = () => {
     }
   )
 
+  const handleDelete = (title: string) => {
+    const tempPost = sampleData.filter((data) => data.title !== title)
+  }
+
   return (
     <Card>
       <AddPost />
