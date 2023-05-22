@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS */
+@layer utilities {
+  .glow {
+    transition: 0.3s all ease-in-out;
+  }
+  .glow:hover {
+    box-shadow: 0 0 10px rgba(44, 255, 72, 0.3);
+  }
+  .post {
+    transition: 0.3s all ease-in-out;
+  }
+  .post:hover {
+    background-color: rgb(34 197 94);
+  }
+}
+
+div svg {
+  color: rgb(34 197 94);
+}
