@@ -6,7 +6,7 @@ const AddPost = () => {
       // onSubmit={handleSubmit}
       className="hover:glow m-10 mx-auto w-5/6 rounded-xl border-none bg-neutral-800 p-8 md:w-2/5"
     >
-      <div className="mb-5 flex items-center gap-2">
+      <div className="mb-5 flex cursor-default items-center gap-2">
         <h3 className="font-medium text-neutral-200">New Blog Post</h3>
         <FaBlogger />
       </div>
